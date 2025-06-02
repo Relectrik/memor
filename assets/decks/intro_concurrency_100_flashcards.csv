@@ -1,0 +1,101 @@
+question,answer,context,difficulty
+What is concurrency?,The idea of structuring a system around multiple activities that can be in progress at the same time.,Basic Concepts,Medium
+Difference between concurrency and parallelism?,Concurrency is making progress on multiple tasks during overlapping time periods; parallelism is executing multiple tasks literally at the same instant on different hardware.,Basic Concepts,Medium
+What is a process?,An independent program in execution with its own address space.,Basic Concepts,Medium
+What is a thread?,A lightweight unit of execution that shares address space with other threads in the same process.,Basic Concepts,Medium
+Granularity in concurrency refers to what?,The amount of work done between synchronization events; classified as fine‑grained or coarse‑grained.,Basic Concepts,Medium
+Name a physical system that is naturally concurrent.,"Railway networks, where many trains move simultaneously while sharing track segments.",Motivation & Examples,Medium
+Why is concurrency important for UI programming?,It keeps the interface responsive by performing blocking I/O or computation on background threads.,Motivation & Examples,Medium
+How did Moore’s law slowdown influence concurrency?,"Stagnating clock speeds pushed designers to use multicore processors, requiring software to use concurrency for performance.",Motivation & Examples,Medium
+Give a concurrency use case in web servers.,Handling many client connections simultaneously using threads or event loops.,Motivation & Examples,Medium
+What real‑world entities inspired the actor model?,Independent actors in theater communicating by passing messages.,Motivation & Examples,Medium
+Define race condition.,An outcome where program behavior depends on unpredictable timing of events.,Hazards,Medium
+What is deadlock?,"A set of processes each waiting for resources held by the others, so none proceed.",Hazards,Medium
+Four Coffman conditions for deadlock?,"Mutual exclusion, hold‑and‑wait, no preemption, circular wait.",Hazards,Medium
+Define starvation.,A process is perpetually denied the resources it needs to make progress.,Hazards,Medium
+What is priority inversion?,"A lower‑priority thread holds a lock needed by a higher‑priority one, blocking it.",Hazards,Medium
+What does a mutex provide?,"Mutual exclusion—only one thread can own it at a time, protecting critical sections.",Mutual Exclusion,Medium
+How does Peterson’s algorithm achieve mutual exclusion?,Using two shared flags and a turn variable to coordinate two threads without hardware primitives.,Mutual Exclusion,Medium
+What atomic CPU instruction underlies many locks?,Compare‑and‑swap (CAS).,Mutual Exclusion,Medium
+Why are spinlocks inefficient on single‑core CPUs?,The waiting thread consumes CPU cycles while the holder can’t run.,Mutual Exclusion,Medium
+What is a re‑entrant lock?,A lock that can be acquired multiple times by the same thread without deadlock.,Mutual Exclusion,Medium
+Semaphores were invented by whom?,Edsger Dijkstra.,Semaphores & Monitors,Medium
+Two operations on a counting semaphore?,P (wait/decrement) and V (signal/increment).,Semaphores & Monitors,Medium
+Binary semaphore is equivalent to what?,A mutex.,Semaphores & Monitors,Medium
+What is a monitor in concurrency?,A module that encapsulates shared data with procedures and an implicit mutex.,Semaphores & Monitors,Medium
+Condition variable in monitors serves what purpose?,Enables threads to wait until a condition holds using wait/signal.,Semaphores & Monitors,Medium
+Synchronous message passing means what?,Sender blocks until the receiver has accepted the message.,Message Passing,Medium
+Name a language famous for the actor model.,Erlang.,Message Passing,Medium
+"In Go, channels are used for what?",Typed conduits that allow goroutines to communicate by sending values.,Message Passing,Medium
+What is the advantage of message passing over shared memory?,"Avoids data races by not sharing mutable state, easing reasoning.",Message Passing,Medium
+Define mailbox in message systems.,A queue where messages for an actor/task are stored until processed.,Message Passing,Medium
+What is the producer‑consumer pattern?,"Producers generate data items that consumers process, coordinated via a buffer.",Patterns & Paradigms,Medium
+Readers‑writers problem addresses what?,Allowing concurrent reads but exclusive writes to shared data.,Patterns & Paradigms,Medium
+What is fork‑join parallelism?,Tasks fork into subtasks that execute in parallel and then join to combine results.,Patterns & Paradigms,Medium
+Structured concurrency advocates what principle?,"Child tasks should complete before their parent exits, yielding a tree‑like lifetime hierarchy.",Patterns & Paradigms,Medium
+What pattern does MapReduce embody?,Data‑parallel divide‑apply‑combine processing using map and reduce phases.,Patterns & Paradigms,Medium
+Java keyword for mutual exclusion?,synchronized.,Languages & Libraries,Medium
+Rust’s ownership model helps concurrency how?,Compile‑time checks prevent data races by ensuring exclusive or shared immutable access.,Languages & Libraries,Medium
+POSIX thread library is commonly called what?,pthreads.,Languages & Libraries,Medium
+What C++ feature introduced in C++11 aids concurrency?,std::thread and std::async/future.,Languages & Libraries,Medium
+Which Swift construct provides structured concurrency?,async let and Task groups.,Languages & Libraries,Medium
+What is a happens‑before relationship?,A partial order that captures causality between events in concurrent execution.,Testing & Debugging,Medium
+What tool records schedules to replay concurrency bugs?,Deterministic record‑and‑replay debuggers like rr.,Testing & Debugging,Medium
+Fuzzing thread schedulers is called what?,Concurrency testing via stress or chaos testing.,Testing & Debugging,Medium
+Define data race detector.,A tool that dynamically finds unsynchronized access to shared memory.,Testing & Debugging,Medium
+What is the benefit of static analysis for concurrency?,Detects potential races or deadlocks without executing the program.,Testing & Debugging,Medium
+Petri nets model concurrency how?,"Places hold tokens; transitions fire moving tokens, representing state and concurrency.",Advanced Models,Medium
+"In CSP, processes communicate via what?",Channels with rendezvous semantics.,Advanced Models,Medium
+The π‑calculus extends process algebra with what feature?,Channel names are first‑class values and can be communicated.,Advanced Models,Medium
+What are virtual threads in Java 22?,Lightweight user‑mode threads managed by the JVM for massive concurrency.,Advanced Models,Medium
+Software Transactional Memory provides what guarantee?,"Atomic, isolated blocks on shared memory akin to database transactions.",Advanced Models,Medium
+What is interleaving?,The execution pattern where steps from different threads appear mixed in a single timeline.,Basic Concepts,Medium
+Define critical section.,A region of code that must be executed by only one thread at a time to prevent races.,Basic Concepts,Medium
+What is context switching?,The act of saving one task’s state and loading another’s so the CPU can switch execution.,Basic Concepts,Medium
+Name the two main forms of parallel hardware.,Shared‑memory multiprocessors and distributed‑memory clusters.,Basic Concepts,Medium
+What is Amdahl’s Law?,It limits potential speedup from parallelism based on the serial fraction of work.,Basic Concepts,Medium
+What is livelock?,Processes continually change state in response to each other but make no progress.,Hazards,Medium
+Describe false sharing.,Two unrelated variables in the same cache line cause unnecessary cache coherence traffic.,Hazards,Medium
+What is the ABA problem?,"A value changes from A to B and back to A between read and CAS, tricking the algorithm.",Hazards,Medium
+Give an example of deadlock prevention.,Imposing a global lock order so circular wait cannot occur.,Hazards,Medium
+What is lock convoying?,"Many threads serialized on a lock, causing throughput drop due to context switches.",Hazards,Medium
+Ticket locks ensure fairness by what mechanism?,Assigning a monotonically increasing number; threads spin until their ticket is served.,Mutual Exclusion,Medium
+What hardware primitive underlies a test‑and‑set lock?,An atomic swap instruction.,Mutual Exclusion,Medium
+What is a reader‑writer lock?,A lock allowing multiple simultaneous readers but exclusive writers.,Mutual Exclusion,Medium
+Name a non‑blocking synchronization type.,Lock‑free algorithms using atomic CAS loops.,Mutual Exclusion,Medium
+Spin‑then‑block lock strategy does what?,Spins briefly before falling back to OS sleep to balance latency and CPU usage.,Mutual Exclusion,Medium
+Binary semaphore initialised to 1 is also called what?,A mutex semaphore.,Semaphores & Monitors,Medium
+What property must be avoided when using condition variables?,Lost wake‑ups (signals before waits).,Semaphores & Monitors,Medium
+Mesa monitors wake which thread?,Signal merely puts waiting thread on ready queue; caller keeps lock until exit.,Semaphores & Monitors,Medium
+Hoare monitors wake semantics differ how?,Signal transfers control to waiting thread immediately.,Semaphores & Monitors,Medium
+Producer‑consumer with semaphores uses how many semaphores?,"Typically three: mutex, empty count, full count.",Semaphores & Monitors,Medium
+What is backpressure in message systems?,Slowing senders when receivers can’t keep up to avoid unbounded queues.,Message Passing,Medium
+Name Go’s pattern for multiplexing channel cases.,`select` statement.,Message Passing,Medium
+Erlang guarantees what message property?,Messages between two actors are delivered in send order.,Message Passing,Medium
+What is mailboxes in Akka typed?,Immutable queues owned by actors for message delivery.,Message Passing,Medium
+What does MPI stand for?,"Message Passing Interface, a standard for distributed-memory parallel programming.",Message Passing,Medium
+The barber shop problem illustrates what?,Synchronization of producers and consumers with limited waiting room.,Patterns & Paradigms,Medium
+What is the bulk‑synchronous parallel model?,Computation phases separated by global barrier synchronizations.,Patterns & Paradigms,Medium
+Pipeline parallelism is useful for what kind of workload?,Streaming data where tasks perform different stages sequentially on items.,Patterns & Paradigms,Medium
+What does reactive programming emphasize?,Data flows and the propagation of change rather than explicit threads.,Patterns & Paradigms,Medium
+Define embarrassingly parallel problem.,One that can be easily separated into independent tasks with no communication.,Patterns & Paradigms,Medium
+Which Python module provides higher‑level concurrency than threading?,`concurrent.futures` with ThreadPoolExecutor and ProcessPoolExecutor.,Languages & Libraries,Medium
+What is OpenMP primarily used for?,Directive‑based shared‑memory parallelism in C/C++/Fortran.,Languages & Libraries,Medium
+Node.js achieves concurrency via what model?,Single‑threaded event loop with asynchronous callbacks/promises.,Languages & Libraries,Medium
+C# async-await relies on what abstraction?,Tasks representing eventual results of asynchronous operations.,Languages & Libraries,Medium
+CUDA enables what kind of concurrency?,Massive data‑parallel GPU threads.,Languages & Libraries,Medium
+What is systematic concurrency testing?,Exploring different thread schedules systematically to find bugs.,Testing & Debugging,Medium
+Lincheck and jcstress are tools for what language?,Java/Kotlin concurrency testing.,Testing & Debugging,Medium
+What is ThreadSanitizer?,Dynamic data race detector for C/C++ and Go.,Testing & Debugging,Medium
+What is the purpose of happens‑before graph visualizers?,To debug ordering and synchronization issues.,Testing & Debugging,Medium
+Stress testing under high load reveals what?,Timing‑dependent bugs that appear rarely under normal conditions.,Testing & Debugging,Medium
+Lamport clocks capture what?,A logical time order of events in distributed systems.,Advanced Models,Medium
+Vector clocks improve over Lamport clocks how?,"They detect causal relationships, not just ordering.",Advanced Models,Medium
+What is quorum consensus?,Majority agreement in distributed systems to ensure consistency.,Advanced Models,Medium
+The CAP theorem states what?,"A distributed system can only guarantee two of Consistency, Availability, and Partition tolerance.",Advanced Models,Medium
+CRDTs provide what benefit?,Conflict‑free replicated data types converge automatically without coordination.,Advanced Models,Medium
+What scheduler maps user threads to kernel threads many‑to‑one?,Green thread scheduler in some runtimes like early Java VM.,Basic Concepts,Medium
+What is heisenbug in concurrent code?,"A bug that disappears or alters behavior when one attempts to study it, often due to timing changes.",Hazards,Medium
+Why must condition variable waits occur in a loop?,To recheck the predicate because of spurious wake‑ups or lost signals.,Semaphores & Monitors,Medium
+What is zero‑copy message transfer?,Passing messages by reference or shared memory to avoid copying payload data.,Message Passing,Medium
+Transactional actor systems combine what two ideas?,Actor message isolation with software transactional memory for state updates.,Patterns & Paradigms,Medium

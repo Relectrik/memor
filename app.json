@@ -8,6 +8,14 @@
     "scheme": "flashcardsrn",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "extra": {
+      "supabaseUrl": "https://ccsoxdrcvxxirdixriht.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjc294ZHJjdnh4aXJkaXhyaWh0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg4NDQxODYsImV4cCI6MjA2NDQyMDE4Nn0.UuHr_776Plpq_6_GRm5ncmdVvSOzZDx3vyghRXCPDyA",
+      "router": {},
+      "eas": {
+        "projectId": "ef4a4511-1599-44db-a81a-52a3beda5f54"
+      }
+    },
     "ios": {
       "supportsTablet": true
     },
