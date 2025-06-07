@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="memor logo.png" alt="memor logo" width="200" height="200"/>
+  <img src="memor logo.png" alt="memor logo" width="400" height="400"/>
 </p>
 
 <h1 align="center">memor</h1>
